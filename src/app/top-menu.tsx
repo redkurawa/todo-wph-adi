@@ -1,4 +1,4 @@
-import { Moon, Sun } from 'lucide-react';
+import { Moon, Search, Sun } from 'lucide-react';
 import React from 'react';
 
 const TopMenu = () => {
@@ -16,7 +16,34 @@ const TopMenu = () => {
           <Moon className='size-8 rounded-xl p-1' />
         </div>
       </div>
-      <input type='text' placeholder='Search' />
+      <div className='flex h-12 w-full items-center justify-between gap-3'>
+        <div className='flex flex-1 rounded-2xl border border-neutral-300 px-3'>
+          <button className='flex-center size-7 rounded-full'>
+            <Search size={18} className='text-gray-700' />
+          </button>
+          <input
+            type='text'
+            placeholder='Search'
+            name='search'
+            id='search'
+            className='flex-1 text-sm text-neutral-400'
+          />
+        </div>
+        <div className='flex gap-2 rounded-2xl border border-neutral-300 px-2.5 text-sm text-neutral-900'>
+          Priority
+        </div>
+      </div>
+      <div className='flex-between w-full rounded-2xl border border-neutral-300 p-2 text-sm'>
+        <div className='flex-1 rounded-md border border-amber-400 text-center'>
+          Today
+        </div>
+        <div className='flex-1 rounded-[8px] border border-blue-400 text-center'>
+          Incoming
+        </div>
+        <div className='flex-1 rounded-[8px] border border-green-400 text-center'>
+          Completed
+        </div>
+      </div>
     </>
   );
 };
