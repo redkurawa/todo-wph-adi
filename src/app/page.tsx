@@ -1,7 +1,6 @@
 'use client';
 import { useEffect, useState } from 'react';
 
-import { Button } from '@/components/ui/button';
 import TodoCard from '@/components/ui/todo-card';
 
 import { TodoType } from '@/constants/todo-type';

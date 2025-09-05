@@ -1,7 +1,9 @@
 import { Moon, Search, Sun } from 'lucide-react';
+import { useTheme } from 'next-themes';
 import React from 'react';
 
 const TopMenu = () => {
+  const { setTheme } = useTheme();
   return (
     <>
       <div className='flex-between'>
@@ -11,9 +13,16 @@ const TopMenu = () => {
           </h1>
           <h2 className='text-md font-normal'>Your productivity starts now.</h2>
         </div>
-        <div className='flex gap-2 rounded-2xl border border-neutral-300 bg-neutral-200 p-1'>
-          <Sun className='bg-primary-100 size-8 rounded-xl p-1' />
-          <Moon className='size-8 rounded-xl p-1' />
+        {/* dark button */}
+        <div className='flex cursor-pointer gap-2 rounded-2xl border border-neutral-300 bg-neutral-200 p-1 dark:border-neutral-900 dark:bg-neutral-950'>
+          <Sun
+            className='size-8 rounded-xl p-1'
+            onClick={() => setTheme('light')}
+          />
+          <Moon
+            className='size-8 rounded-xl p-1'
+            onClick={() => setTheme('dark')}
+          />
         </div>
       </div>
       <div className='flex h-12 w-full items-center justify-between gap-3'>
@@ -33,6 +42,7 @@ const TopMenu = () => {
           Priority
         </div>
       </div>
+      {/* today incoming box */}
       <div className='flex-between w-full rounded-2xl border border-neutral-300 p-2 text-sm'>
         <div className='flex-1 rounded-md border border-amber-400 text-center'>
           Today

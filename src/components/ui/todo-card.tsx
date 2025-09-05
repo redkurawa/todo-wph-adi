@@ -1,11 +1,8 @@
-import { title } from 'process';
-
-import React from 'react';
+import dayjs from 'dayjs';
 
 import { TodoType } from '@/constants/todo-type';
 
 import { Button } from './button';
-
 type Props = {
   todo: TodoType;
   isDark?: boolean;
@@ -16,7 +13,7 @@ const TodoCard = ({ todo, isDark = false }: Props) => {
     <>
       <div
         key={todo.id}
-        className='flex-between my-3 w-full gap-4 rounded-2xl border border-neutral-300 bg-neutral-200 p-3'
+        className='flex-between my-3 w-full gap-4 rounded-2xl border border-neutral-300 bg-neutral-200 p-3 dark:bg-neutral-800'
       >
         <div>
           <Button
@@ -27,10 +24,24 @@ const TodoCard = ({ todo, isDark = false }: Props) => {
         </div>
         <div className='flex-1'>
           <span className='text-md block font-semibold'>{todo.title}</span>
-          <span className='text-sm font-normal'>{todo.date}</span>
-          {todo.priority}
+          <div className='flex gap-6 text-sm'>
+            <span className='font-normal'>
+              {dayjs(todo.date).format('MMM D, YYYY')}
+            </span>
+            <span
+              className={`rounded-[8px] px-2 font-semibold ${
+                todo.priority === 'HIGH'
+                  ? 'bg-accent-red'
+                  : todo.priority === 'MEDIUM'
+                    ? 'bg-accent-yellow'
+                    : 'bg-accent-green'
+              }`}
+            >
+              {todo.priority}
+            </span>
+          </div>
         </div>
-        <div>
+        <div className='text-[12px]'>
           ...{todo.id},{isDark}
         </div>
       </div>
