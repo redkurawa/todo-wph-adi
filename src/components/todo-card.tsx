@@ -1,14 +1,18 @@
 import dayjs from 'dayjs';
+import { useRouter } from 'next/navigation';
+// import router from 'next/router';
 
 import { TodoType } from '@/constants/todo-type';
 
+import { EditDelete } from './edit-delete-dialog';
 import { Button } from './ui/button';
 type Props = {
   todo: TodoType;
   isDark?: boolean;
 };
 
-const TodoCard = ({ todo, isDark = false }: Props) => {
+const TodoCard = ({ todo }: Props) => {
+  const router = useRouter();
   return (
     <>
       <div
@@ -43,7 +47,17 @@ const TodoCard = ({ todo, isDark = false }: Props) => {
           </div>
         </div>
         <div className='text-[12px]'>
-          ...{todo.id},{isDark}
+          {/* <EditDelete id={todo.id} className='cursor-pointer text-white'>
+            Hapus
+          </EditDelete> */}
+          <EditDelete
+            id={todo.id}
+            onDeleted={() => {
+              // bisa pakai router refresh, query invalidation, atau state update
+              router.refresh(); // jika pakai Next.js App Router
+              // atau queryClient.invalidateQueries(['todos']);
+            }}
+          />
         </div>
       </div>
     </>

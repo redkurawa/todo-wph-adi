@@ -44,9 +44,9 @@ export function DatePicker({
 
   return (
     <div className='flex flex-col gap-3'>
-      <Label htmlFor='date' className='px-1'>
+      {/* <Label htmlFor='date' className='px-1'>
         Subscription Date
-      </Label>
+      </Label> */}
       <div className='relative flex gap-2'>
         <Input
           id='date'

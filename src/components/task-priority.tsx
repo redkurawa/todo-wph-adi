@@ -50,11 +50,11 @@ export function TodoPriority({ getPriority }: TodoPriorityProps) {
           variant='outline'
           role='combobox'
           aria-expanded={open}
-          className='w-full justify-between'
+          className='text-md w-full justify-between border-neutral-200 font-normal text-gray-400'
         >
           {value
             ? frameworks.find((framework) => framework.value === value)?.label
-            : 'Select priorty'}
+            : 'Select priority'}
           <ChevronsUpDown className='opacity-50' />
         </Button>
       </PopoverTrigger>
