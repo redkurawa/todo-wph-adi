@@ -55,7 +55,8 @@ export function DatePicker({
           placeholder={dayjs(date).format('MMM D, YYYY')}
           className='bg-background pr-10'
           onChange={(e) => {
-            const inputDate = new Date(e.target.value);
+            // const inputDate = new Date(e.target.value);
+            const inputDate = new Date();
             setValue(e.target.value);
             if (isValidDate(inputDate)) {
               setDate(inputDate);
