@@ -12,8 +12,8 @@ const TodoCard = ({ todo, isDark = false }: Props) => {
   return (
     <>
       <div
-        key={todo.id}
-        className='flex-between my-3 w-full gap-4 rounded-2xl border border-neutral-300 bg-neutral-200 p-3 dark:border-neutral-800 dark:bg-neutral-900'
+        // key={todo.id}
+        className='flex-between my-3 w-full gap-4 rounded-2xl border border-neutral-200 bg-neutral-50 p-3 dark:border-neutral-800 dark:bg-neutral-900'
       >
         <div>
           <Button
@@ -27,6 +27,7 @@ const TodoCard = ({ todo, isDark = false }: Props) => {
           <div className='flex gap-6 text-sm'>
             <span className='font-normal dark:text-neutral-400'>
               {dayjs(todo.date).format('MMM D, YYYY')}
+              {/* {todo.date} */}
             </span>
             <span
               className={`rounded-[8px] px-2 font-semibold ${

@@ -1,6 +1,5 @@
 'use client';
 
-import dayjs from 'dayjs';
 import { CalendarIcon } from 'lucide-react';
 import * as React from 'react';
 
@@ -52,11 +51,10 @@ export function DatePicker({
         <Input
           id='date'
           value={value}
-          placeholder={dayjs(date).format('MMM D, YYYY')}
+          placeholder='June 01, 2025'
           className='bg-background pr-10'
           onChange={(e) => {
-            // const inputDate = new Date(e.target.value);
-            const inputDate = new Date();
+            const inputDate = new Date(e.target.value);
             setValue(e.target.value);
             if (isValidDate(inputDate)) {
               setDate(inputDate);

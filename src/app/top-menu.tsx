@@ -14,7 +14,7 @@ const TopMenu = () => {
           <h2 className='text-md font-normal'>Your productivity starts now.</h2>
         </div>
         {/* dark button */}
-        <div className='flex cursor-pointer gap-2 rounded-2xl border border-neutral-300 bg-neutral-200 p-1 dark:border-neutral-800 dark:bg-neutral-900'>
+        <div className='flex cursor-pointer gap-2 rounded-2xl border border-neutral-200 bg-neutral-50 p-1 dark:border-neutral-800 dark:bg-neutral-900'>
           <Sun
             className='bg-accent-yellow size-8 rounded-xl p-1 dark:bg-neutral-900'
             onClick={() => setTheme('light')}

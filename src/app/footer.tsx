@@ -1,8 +1,9 @@
+import dayjs from 'dayjs';
 import { Plus } from 'lucide-react';
 import { useState } from 'react';
 
-import { ComboboxDemo } from '@/components/combo-box';
 import { DatePicker } from '@/components/date-picker';
+import { ComboboxDemo } from '@/components/task-priority';
 import { Button } from '@/components/ui/button';
 import {
   Dialog,
@@ -47,8 +48,9 @@ const TodoFooter = () => {
           {/* check output date-picker */}
           <div className='text-foreground mt-4 text-xs'>
             Tanggal yang dipilih:{' '}
-            {selectedDate?.toLocaleDateString('id-ID') || 'Belum dipilih'}
+            {dayjs(selectedDate?.toString() || 'Belum dipilih').format()}
           </div>
+
           {/* end check output date-picker */}
           <DialogFooter className='sm:justify-start'>
             <DialogClose asChild>
