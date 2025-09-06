@@ -3,7 +3,7 @@ import { Plus } from 'lucide-react';
 import { useState } from 'react';
 
 import { DatePicker } from '@/components/date-picker';
-import { ComboboxDemo, TodoPriority } from '@/components/task-priority';
+import { TodoPriority } from '@/components/task-priority';
 import { Button } from '@/components/ui/button';
 import {
   Dialog,
@@ -44,10 +44,9 @@ const TodoFooter = () => {
               <Input id='link' placeholder='Enter your task' />
             </div>
           </div>
-          {/* <ComboboxDemo /> */}
           <div>
             <TodoPriority getPriority={setPriority} />
-            <h1>
+            <h1 className='text-foreground text-xs'>
               {priority
                 ? `Selected Priority: ${priority}`
                 : 'No priority selected'}
@@ -57,7 +56,7 @@ const TodoFooter = () => {
           <h1>{priority}</h1> */}
           <DatePicker date={selectedDate} setDate={setSelectedDate} />
           {/* check output date-picker */}
-          <div className='text-foreground mt-4 text-xs'>
+          <div className='text-foreground text-xs'>
             Tanggal yang dipilih:{' '}
             {dayjs(selectedDate?.toString() || 'Belum dipilih').format()}
           </div>
