@@ -6,6 +6,7 @@ import TodoCard from '@/components/ui/todo-card';
 import { TodoType } from '@/constants/todo-type';
 import { getTodoList } from '@/services/service';
 
+import CardFooter from './footer';
 import TopMenu from './top-menu';
 
 const Home = () => {
@@ -26,6 +27,7 @@ const Home = () => {
       {todo.map((todos, index) => (
         <TodoCard key={index} todo={todos} />
       ))}
+      <CardFooter />
     </div>
   );
 };

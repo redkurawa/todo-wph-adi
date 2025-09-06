@@ -13,7 +13,7 @@ const TodoCard = ({ todo, isDark = false }: Props) => {
     <>
       <div
         key={todo.id}
-        className='flex-between my-3 w-full gap-4 rounded-2xl border border-neutral-300 bg-neutral-200 p-3 dark:bg-neutral-800'
+        className='flex-between my-3 w-full gap-4 rounded-2xl border border-neutral-300 bg-neutral-200 p-3 dark:border-neutral-800 dark:bg-neutral-900'
       >
         <div>
           <Button
@@ -25,7 +25,7 @@ const TodoCard = ({ todo, isDark = false }: Props) => {
         <div className='flex-1'>
           <span className='text-md block font-semibold'>{todo.title}</span>
           <div className='flex gap-6 text-sm'>
-            <span className='font-normal'>
+            <span className='font-normal dark:text-neutral-400'>
               {dayjs(todo.date).format('MMM D, YYYY')}
             </span>
             <span
@@ -33,7 +33,7 @@ const TodoCard = ({ todo, isDark = false }: Props) => {
                 todo.priority === 'HIGH'
                   ? 'bg-accent-red'
                   : todo.priority === 'MEDIUM'
-                    ? 'bg-accent-yellow'
+                    ? 'bg-accent-yellow text-black'
                     : 'bg-accent-green'
               }`}
             >
