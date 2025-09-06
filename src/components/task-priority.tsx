@@ -35,7 +35,11 @@ const frameworks = [
   },
 ];
 
-export function ComboboxDemo() {
+type TodoPriorityProps = {
+  getPriority: (priority: string) => void;
+};
+
+export function TodoPriority({ getPriority }: TodoPriorityProps) {
   const [open, setOpen] = React.useState(false);
   const [value, setValue] = React.useState('');
 
@@ -66,6 +70,7 @@ export function ComboboxDemo() {
                   value={framework.value}
                   onSelect={(currentValue) => {
                     setValue(currentValue === value ? '' : currentValue);
+                    getPriority(currentValue);
                     setOpen(false);
                   }}
                 >

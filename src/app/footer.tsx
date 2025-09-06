@@ -3,7 +3,7 @@ import { Plus } from 'lucide-react';
 import { useState } from 'react';
 
 import { DatePicker } from '@/components/date-picker';
-import { ComboboxDemo } from '@/components/task-priority';
+import { ComboboxDemo, TodoPriority } from '@/components/task-priority';
 import { Button } from '@/components/ui/button';
 import {
   Dialog,
@@ -21,6 +21,7 @@ const TodoFooter = () => {
   const [selectedDate, setSelectedDate] = useState<Date | undefined>(
     new Date()
   );
+  const [priority, setPriority] = useState('');
 
   return (
     <div className='custom-container'>
@@ -43,7 +44,17 @@ const TodoFooter = () => {
               <Input id='link' placeholder='Enter your task' />
             </div>
           </div>
-          <ComboboxDemo />
+          {/* <ComboboxDemo /> */}
+          <div>
+            <TodoPriority getPriority={setPriority} />
+            <h1>
+              {priority
+                ? `Selected Priority: ${priority}`
+                : 'No priority selected'}
+            </h1>
+          </div>
+          {/* <TodoPriority getPriority={setPriority} />
+          <h1>{priority}</h1> */}
           <DatePicker date={selectedDate} setDate={setSelectedDate} />
           {/* check output date-picker */}
           <div className='text-foreground mt-4 text-xs'>
