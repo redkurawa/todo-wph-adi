@@ -2,7 +2,7 @@ import dayjs from 'dayjs';
 
 import { TodoType } from '@/constants/todo-type';
 
-import { Button } from './button';
+import { Button } from './ui/button';
 type Props = {
   todo: TodoType;
   isDark?: boolean;

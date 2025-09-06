@@ -1,7 +1,7 @@
 'use client';
 import { useEffect, useState } from 'react';
 
-import TodoCard from '@/components/ui/todo-card';
+import TodoCard from '@/components/todo-card';
 
 import { TodoType } from '@/constants/todo-type';
 import { getTodoList } from '@/services/service';
