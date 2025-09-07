@@ -1,6 +1,4 @@
 import dayjs from 'dayjs';
-// import { useRouter } from 'next/navigation';
-// import router from 'next/router';
 
 import { TodoType } from '@/constants/todo-type';
 
@@ -9,10 +7,10 @@ import { Button } from './ui/button';
 type Props = {
   todo: TodoType;
   complete?: boolean;
+  // index: number;
 };
 
 const TodoCard = ({ todo, complete = false }: Props) => {
-  // const router = useRouter();
   return (
     <>
       <div
@@ -25,7 +23,9 @@ const TodoCard = ({ todo, complete = false }: Props) => {
             variant='outline'
             size='box'
             className='border-neutral-300 bg-neutral-200'
-          ></Button>
+          >
+            {/* {index + 1} */}
+          </Button>
         </div>
         <div className='flex-1'>
           <span className='sm:text-md block text-sm font-semibold'>
@@ -39,10 +39,10 @@ const TodoCard = ({ todo, complete = false }: Props) => {
             <span
               className={`rounded-[8px] px-2 text-xs font-semibold sm:text-sm ${
                 todo.priority === 'HIGH'
-                  ? 'bg-accent-red'
+                  ? 'bg-accent-red text-white'
                   : todo.priority === 'MEDIUM'
                     ? 'bg-accent-yellow text-black'
-                    : 'bg-accent-green'
+                    : 'bg-accent-green text-white'
               }`}
             >
               {todo.priority}

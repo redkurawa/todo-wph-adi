@@ -1,10 +1,10 @@
-// components/UserFormDialog.tsx
 'use client';
 
 import dayjs from 'dayjs';
 import { Plus } from 'lucide-react';
 import { useState } from 'react';
 import { useForm } from 'react-hook-form';
+import { toast } from 'sonner';
 
 import { DatePicker } from '@/components/date-picker';
 import { TodoPriority } from '@/components/task-priority';
@@ -40,7 +40,14 @@ export default function TodoFooter() {
     console.log('Form values:', data);
     try {
       const response = await api.post('/todos', payload);
-      console.log('Server response:', response.data);
+      toast('Task Added!', {
+        style: {
+          background: '#22c55e',
+          color: 'white',
+        },
+      });
+      console.log('Server response2:', response.data);
+      window.location.reload();
     } catch (error) {
       console.error('Failed to submit:', error);
     }
@@ -68,8 +75,6 @@ export default function TodoFooter() {
         </DialogHeader>
         <form onSubmit={handleSubmit(onSubmit)} className='space-y-4'>
           <div className='grid gap-2'>
-            {/* <Label htmlFor='title'>Title</Label> */}
-
             <Input
               id='title'
               {...register('title', { required: true })}
