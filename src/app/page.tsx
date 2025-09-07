@@ -7,6 +7,7 @@ import { TodoType } from '@/constants/todo-type';
 import { getTodoList } from '@/services/service';
 
 import TodoFooter from './footer';
+import ListPage from './list-page';
 import TopMenu from './top-menu';
 
 const Home = () => {
@@ -23,12 +24,10 @@ const Home = () => {
   return (
     <div className='custom-container'>
       <TopMenu />
-
+      <ListPage />
       {todo.map((todos, index) => (
         <TodoCard key={index} todo={todos} />
       ))}
-      {/* <UserFormDialog /> */}
-      {/* <CardFooter /> */}
       <TodoFooter />
     </div>
   );

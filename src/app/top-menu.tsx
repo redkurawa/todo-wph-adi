@@ -43,7 +43,7 @@ const TopMenu = () => {
         </div>
       </div>
       {/* today incoming box */}
-      <div className='flex-between w-full rounded-2xl border border-neutral-300 p-2 text-sm dark:border-neutral-800 dark:bg-neutral-900'>
+      {/* <div className='flex-between w-full rounded-2xl border border-neutral-300 p-2 text-sm dark:border-neutral-800 dark:bg-neutral-900'>
         <div className='flex-1 rounded-md border border-amber-400 text-center'>
           Today
         </div>
@@ -53,7 +53,7 @@ const TopMenu = () => {
         <div className='flex-1 rounded-[8px] border border-green-400 text-center'>
           Completed
         </div>
-      </div>
+      </div> */}
     </>
   );
 };
