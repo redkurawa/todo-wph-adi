@@ -1,3 +1,4 @@
+'use client';
 import { Moon, Search, Sun } from 'lucide-react';
 import { useTheme } from 'next-themes';
 import React from 'react';
@@ -8,10 +9,12 @@ const TopMenu = () => {
     <>
       <div className='flex-between'>
         <div>
-          <h1 className='text-display-sm font-bold'>
+          <h1 className='sm:text-display-sm text-xl font-bold'>
             What’s on Your Plan Today?
           </h1>
-          <h2 className='text-md font-normal'>Your productivity starts now.</h2>
+          <h2 className='sm:text-md text-sm font-normal'>
+            Your productivity starts now.
+          </h2>
         </div>
         {/* dark button */}
         <div className='flex cursor-pointer gap-2 rounded-2xl border border-neutral-200 bg-neutral-50 p-1 dark:border-neutral-800 dark:bg-neutral-900'>
@@ -42,18 +45,6 @@ const TopMenu = () => {
           Priority
         </div>
       </div>
-      {/* today incoming box */}
-      {/* <div className='flex-between w-full rounded-2xl border border-neutral-300 p-2 text-sm dark:border-neutral-800 dark:bg-neutral-900'>
-        <div className='flex-1 rounded-md border border-amber-400 text-center'>
-          Today
-        </div>
-        <div className='flex-1 rounded-[8px] border border-blue-400 text-center'>
-          Incoming
-        </div>
-        <div className='flex-1 rounded-[8px] border border-green-400 text-center'>
-          Completed
-        </div>
-      </div> */}
     </>
   );
 };

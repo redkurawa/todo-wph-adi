@@ -1,5 +1,5 @@
 // components/UserFormDialog.tsx
-// 'use client';
+'use client';
 
 import dayjs from 'dayjs';
 import { Plus } from 'lucide-react';
@@ -12,6 +12,7 @@ import { Button } from '@/components/ui/button';
 import {
   Dialog,
   DialogContent,
+  DialogDescription,
   DialogFooter,
   DialogHeader,
   DialogTitle,
@@ -58,6 +59,7 @@ export default function TodoFooter() {
           <span>Add Task</span>
         </Button>
       </DialogTrigger>
+      <DialogDescription></DialogDescription>
       <DialogContent className='sm:max-w-md'>
         <DialogHeader>
           <DialogTitle className='text-display-xs font-bold'>

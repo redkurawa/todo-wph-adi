@@ -4,6 +4,7 @@ import {
   Dialog,
   DialogClose,
   DialogContent,
+  DialogDescription,
   DialogTitle,
   DialogTrigger,
 } from '@/components/ui/dialog';
@@ -31,6 +32,7 @@ export function EditDelete({ id, onDeleted }: Props) {
   return (
     <Dialog>
       <DialogTitle></DialogTitle>
+      <DialogDescription></DialogDescription>
       <DialogTrigger asChild>
         <div className='cursor-pointer text-4xl'>...</div>
       </DialogTrigger>

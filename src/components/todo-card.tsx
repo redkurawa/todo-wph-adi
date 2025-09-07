@@ -1,5 +1,5 @@
 import dayjs from 'dayjs';
-import { useRouter } from 'next/navigation';
+// import { useRouter } from 'next/navigation';
 // import router from 'next/router';
 
 import { TodoType } from '@/constants/todo-type';
@@ -8,11 +8,11 @@ import { EditDelete } from './edit-delete-dialog';
 import { Button } from './ui/button';
 type Props = {
   todo: TodoType;
-  isDark?: boolean;
+  complete?: boolean;
 };
 
-const TodoCard = ({ todo }: Props) => {
-  const router = useRouter();
+const TodoCard = ({ todo, complete = false }: Props) => {
+  // const router = useRouter();
   return (
     <>
       <div
@@ -20,6 +20,7 @@ const TodoCard = ({ todo }: Props) => {
         className='flex-between my-3 w-full gap-4 rounded-2xl border border-neutral-200 bg-neutral-50 p-3 dark:border-neutral-800 dark:bg-neutral-900'
       >
         <div>
+          {/* checkbox */}
           <Button
             variant='outline'
             size='box'
@@ -27,14 +28,16 @@ const TodoCard = ({ todo }: Props) => {
           ></Button>
         </div>
         <div className='flex-1'>
-          <span className='text-md block font-semibold'>{todo.title}</span>
-          <div className='flex gap-6 text-sm'>
+          <span className='sm:text-md block text-sm font-semibold'>
+            {todo.title}
+          </span>
+          <div className='flex gap-6 text-xs sm:text-sm'>
             <span className='font-normal dark:text-neutral-400'>
               {dayjs(todo.date).format('MMM D, YYYY')}
               {/* {todo.date} */}
             </span>
             <span
-              className={`rounded-[8px] px-2 font-semibold ${
+              className={`rounded-[8px] px-2 text-xs font-semibold sm:text-sm ${
                 todo.priority === 'HIGH'
                   ? 'bg-accent-red'
                   : todo.priority === 'MEDIUM'
@@ -46,19 +49,11 @@ const TodoCard = ({ todo }: Props) => {
             </span>
           </div>
         </div>
-        <div className='text-[12px]'>
-          {/* <EditDelete id={todo.id} className='cursor-pointer text-white'>
-            Hapus
-          </EditDelete> */}
-          <EditDelete
-            id={todo.id}
-            onDeleted={() => {
-              // bisa pakai router refresh, query invalidation, atau state update
-              router.refresh(); // jika pakai Next.js App Router
-              // atau queryClient.invalidateQueries(['todos']);
-            }}
-          />
-        </div>
+        {!complete && (
+          <div>
+            <EditDelete id={todo.id} />
+          </div>
+        )}
       </div>
     </>
   );
