@@ -1,13 +1,13 @@
+// todo-card.tsx
 import dayjs from 'dayjs';
 
 import { TodoType } from '@/constants/todo-type';
 
 import { EditDelete } from './edit-delete-dialog';
-import { Button } from './ui/button';
+import TodoCheckbox from './todo-checkbox';
 type Props = {
   todo: TodoType;
   complete?: boolean;
-  // index: number;
 };
 
 const TodoCard = ({ todo, complete = false }: Props) => {
@@ -17,15 +17,9 @@ const TodoCard = ({ todo, complete = false }: Props) => {
         // key={todo.id}
         className='flex-between my-3 w-full gap-4 rounded-2xl border border-neutral-200 bg-neutral-50 p-3 dark:border-neutral-800 dark:bg-neutral-900'
       >
+        {/* checkbox */}
         <div>
-          {/* checkbox */}
-          <Button
-            variant='outline'
-            size='box'
-            className='border-neutral-300 bg-neutral-200'
-          >
-            {/* {index + 1} */}
-          </Button>
+          <TodoCheckbox tada={todo} />
         </div>
         <div className='flex-1'>
           <span
