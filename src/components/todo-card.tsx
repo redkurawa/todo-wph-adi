@@ -28,11 +28,15 @@ const TodoCard = ({ todo, complete = false }: Props) => {
           </Button>
         </div>
         <div className='flex-1'>
-          <span className='sm:text-md block text-sm font-semibold'>
+          <span
+            className={`sm:text-md block text-sm font-semibold ${todo.completed && 'text-neutral-400 line-through'}`}
+          >
             {todo.title}
           </span>
           <div className='flex gap-6 text-xs sm:text-sm'>
-            <span className='font-normal dark:text-neutral-400'>
+            <span
+              className={`font-normal dark:text-neutral-400 ${todo.completed && 'text-neutral-400'}`}
+            >
               {dayjs(todo.date).format('MMM D, YYYY')}
               {/* {todo.date} */}
             </span>
