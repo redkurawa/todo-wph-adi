@@ -29,7 +29,7 @@ const ListComplete = () => {
         </div>
       </div>
 
-      <GetList queueType='completed=true' showEdit={true} />
+      <GetList queueParam='completed=true' showEdit={true} />
     </div>
   );
 };

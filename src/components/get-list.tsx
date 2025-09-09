@@ -9,7 +9,7 @@ import { getTodoList } from '@/services/service';
 import { useTodoStore } from '@/store/todo-store';
 
 interface Props {
-  queueType: string;
+  queueParam: string;
   showEdit?: boolean;
 }
 
@@ -19,23 +19,24 @@ interface TodoResponse {
   hasNextPage: boolean;
 }
 
-export default function GetList({ queueType = '', showEdit = false }: Props) {
+export default function GetList({ queueParam = '', showEdit = false }: Props) {
   const resetTodos = useTodoStore((s) => s.resetTodos);
   const addTodos = useTodoStore((s) => s.addTodos);
   const setPagination = useTodoStore((s) => s.setPagination);
   const setShowEdit = useTodoStore((s) => s.setShowEdit);
 
-  // console.log('queueType getlist.ts:', queueType);
+  console.log('queueParam getlist.ts:', queueParam);
 
   const { data, fetchNextPage, hasNextPage, isFetchingNextPage } =
     useInfiniteQuery({
-      queryKey: ['todos', queueType],
+      queryKey: ['todos', queueParam],
       queryFn: async ({ pageParam = 0 }) => {
         const todoParam =
-          queueType?.length == 0
+          queueParam?.length == 0
             ? `scroll?nextCursor=${pageParam}`
-            : `scroll?nextCursor=${pageParam}&${queueType}`;
-        const res: TodoResponse = await getTodoList(todoParam);
+            : `scroll?nextCursor=${pageParam}&${queueParam}`;
+        const res: TodoResponse = await getTodoList(todoParam, '');
+        console.log('todoparam getlist.ts :', todoParam);
         // console.log('res getlist.ts :', res);
         return res;
       },
@@ -51,7 +52,7 @@ export default function GetList({ queueType = '', showEdit = false }: Props) {
   useEffect(() => {
     resetTodos();
     setShowEdit(showEdit);
-  }, [queueType, resetTodos, showEdit, setShowEdit]);
+  }, [queueParam, resetTodos, showEdit, setShowEdit]);
 
   useEffect(() => {
     // resetTodos();
@@ -64,7 +65,7 @@ export default function GetList({ queueType = '', showEdit = false }: Props) {
       setPagination({ fetchNextPage, hasNextPage, isFetchingNextPage });
     }
   }, [
-    // queueType,
+    // queueParam,
     data,
     addTodos,
     setPagination,
