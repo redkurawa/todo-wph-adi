@@ -8,17 +8,7 @@ import { useTodoStore } from '@/store/todo-store';
 
 import TodoCard from './todo-card';
 
-// import { useTodoStore } from '../store/todoStore';
-
-// interface Props {
-//   // warna: string;
-//   // complete?: boolean;
-// }
-
-// export default function ShowList({ complete = false }: Props) {
 export default function ShowList() {
-  // export default function ShowList({ warna }?: Props) {
-  // export default function ShowList(warna?: string) {
   const todos = useTodoStore((s) => s.todos);
   const pagination = useTodoStore((s) => s.pagination);
   const showEdit = useTodoStore((s) => s.showEdit);
@@ -46,7 +36,6 @@ export default function ShowList() {
     };
   }, [pagination]);
 
-  // console.log('isi todos showlist.tsx :', { todos });
   return (
     <div>
       {todos.map((todo) => (

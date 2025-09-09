@@ -29,5 +29,5 @@ export const dateQuery = (
     limit: limit.toString(),
   });
 
-  return params.toString(); // encoded string
+  return params.toString();
 };

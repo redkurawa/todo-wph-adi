@@ -36,9 +36,7 @@ const EditDialog = ({ todo, onClose }: Props) => {
   );
   const [priority, setPriority] = useState('MEDIUM');
 
-  useEffect(() => {
-    // Optional: fetch data by ID
-  }, [todo.id]);
+  useEffect(() => {}, [todo.id]);
 
   useEffect(() => {
     if (!todo.id) return;
@@ -87,7 +85,6 @@ const EditDialog = ({ todo, onClose }: Props) => {
         <DialogHeader>
           <DialogTitle className='text-display-xs font-bold'>
             Edit Task
-            {/* - <span className='text-xs'>{todo.id}</span> */}
           </DialogTitle>
         </DialogHeader>
         <form onSubmit={handleSubmit(onSubmit)} className='space-y-4'>

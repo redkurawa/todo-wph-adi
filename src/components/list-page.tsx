@@ -3,7 +3,6 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import ListComplete from '@/app/list-completed';
 import ListToday from '@/app/list-today';
 import ListUpcoming from '@/app/list-upcomig';
-// import ListUpcoming from '@/app/list-upcoming';
 
 const ListPage = () => {
   return (
@@ -18,8 +17,6 @@ const ListPage = () => {
           <ListToday />
         </TabsContent>
         <TabsContent value='upcoming'>
-          {/* Make changes to your incoming here. */}
-          {/* <TodoFooter /> */}
           <ListUpcoming />
         </TabsContent>
         <TabsContent value='completed'>

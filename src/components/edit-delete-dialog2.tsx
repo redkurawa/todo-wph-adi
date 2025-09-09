@@ -17,7 +17,6 @@ import { api } from '@/services/api';
 import EditDialog from './edit-dialog';
 
 type Props = {
-  // id: string;
   todo: TodoType;
   className?: string;
   onDeleted?: () => void;
@@ -25,7 +24,6 @@ type Props = {
 
 export function EditDelete2({ todo, onDeleted }: Props) {
   const [showEditDialog, setShowEditDialog] = useState(false);
-  // const [localTodo, setLocalTodo] = useState(todo);
 
   const updated = { ...todo };
   console.log('editdelte isi update :', updated);

@@ -47,9 +47,7 @@ const TodoCard = ({ todo }: Props) => {
         </div>
         {!showEdit && (
           <div>
-            {/* <EditDelete id={todo.id} /> */}
             <EditDelete2 todo={todo} />
-            {/* <EditDeleteDialog id={todo.id} /> */}
           </div>
         )}
       </div>

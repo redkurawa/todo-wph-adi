@@ -25,8 +25,6 @@ export default function GetList({ queueParam = '', showEdit = false }: Props) {
   const setPagination = useTodoStore((s) => s.setPagination);
   const setShowEdit = useTodoStore((s) => s.setShowEdit);
 
-  // console.log('queueParam getlist.ts:', queueParam);
-
   const { data, fetchNextPage, hasNextPage, isFetchingNextPage } =
     useInfiniteQuery({
       queryKey: ['todos', queueParam],
@@ -36,8 +34,6 @@ export default function GetList({ queueParam = '', showEdit = false }: Props) {
             ? `scroll?nextCursor=${pageParam}`
             : `scroll?nextCursor=${pageParam}&${queueParam}`;
         const res: TodoResponse = await getTodoList(todoParam, '');
-        console.log('todoparam getlist.ts :', todoParam);
-        // console.log('res getlist.ts :', res);
         return res;
       },
       getNextPageParam: (lastPage) => {
@@ -55,7 +51,6 @@ export default function GetList({ queueParam = '', showEdit = false }: Props) {
   }, [queueParam, resetTodos, showEdit, setShowEdit]);
 
   useEffect(() => {
-    // resetTodos();
     if (data) {
       const allTodos = data.pages.flatMap((page) => page.todos);
       const uniqueTodos = Array.from(
@@ -65,7 +60,6 @@ export default function GetList({ queueParam = '', showEdit = false }: Props) {
       setPagination({ fetchNextPage, hasNextPage, isFetchingNextPage });
     }
   }, [
-    // queueParam,
     data,
     addTodos,
     setPagination,

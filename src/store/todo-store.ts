@@ -2,8 +2,6 @@ import { create } from 'zustand';
 
 import { TodoType } from '@/constants/todo-type';
 
-// import { Todo } from '@/types/todo';
-
 interface PaginationState {
   fetchNextPage: () => void;
   hasNextPage: boolean | undefined;
