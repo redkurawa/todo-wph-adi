@@ -1,10 +1,15 @@
 'use client';
 import React, { useEffect, useState } from 'react';
 
+import GetList from '@/components/get-list';
 import TodoCard from '@/components/todo-card';
 
 import { TodoType } from '@/constants/todo-type';
 import { getTodoList } from '@/services/service';
+
+interface Props {
+  queueType: string;
+}
 
 const ListToday = () => {
   const [todo, setTodo] = useState<TodoType[]>([]);
@@ -34,9 +39,10 @@ const ListToday = () => {
           {complete} item
         </div>
       </div>
-      {todo.map((todos, index) => (
+      <GetList queueType='' />
+      {/* {todo.map((todos, index) => (
         <TodoCard key={index} todo={todos} />
-      ))}
+      ))} */}
     </div>
   );
 };

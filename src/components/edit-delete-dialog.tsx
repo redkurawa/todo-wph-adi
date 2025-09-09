@@ -14,7 +14,7 @@ import { api } from '@/services/api';
 type Props = {
   id: string;
   className?: string;
-  onDeleted?: () => void; // opsional: callback setelah delete
+  onDeleted?: () => void;
 };
 
 export function EditDelete({ id, onDeleted }: Props) {
@@ -22,7 +22,7 @@ export function EditDelete({ id, onDeleted }: Props) {
     try {
       const response = await api.delete(`/todos/${id}`);
       console.log('Server response:', response.data);
-      if (onDeleted) onDeleted(); // trigger callback jika ada
+      if (onDeleted) onDeleted();
       window.location.reload();
     } catch (error) {
       console.error('Failed to delete:', error);

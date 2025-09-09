@@ -2,21 +2,20 @@
 import dayjs from 'dayjs';
 
 import { TodoType } from '@/constants/todo-type';
+import { useTodoStore } from '@/store/todo-store';
 
 import { EditDelete } from './edit-delete-dialog';
 import TodoCheckbox from './todo-checkbox';
 type Props = {
   todo: TodoType;
-  complete?: boolean;
 };
 
-const TodoCard = ({ todo, complete = false }: Props) => {
+const TodoCard = ({ todo }: Props) => {
+  const showEdit = useTodoStore((s) => s.showEdit);
+
   return (
     <>
-      <div
-        // key={todo.id}
-        className='flex-between my-3 w-full gap-4 rounded-2xl border border-neutral-200 bg-neutral-50 p-3 dark:border-neutral-800 dark:bg-neutral-900'
-      >
+      <div className='flex-between my-3 w-full gap-4 rounded-2xl border border-neutral-200 bg-neutral-50 p-3 dark:border-neutral-800 dark:bg-neutral-900'>
         {/* checkbox */}
         <div>
           <TodoCheckbox tada={todo} />
@@ -32,7 +31,6 @@ const TodoCard = ({ todo, complete = false }: Props) => {
               className={`font-normal dark:text-neutral-400 ${todo.completed && 'text-neutral-400'}`}
             >
               {dayjs(todo.date).format('MMM D, YYYY')}
-              {/* {todo.date} */}
             </span>
             <span
               className={`rounded-[8px] px-2 text-xs font-semibold sm:text-sm ${
@@ -47,7 +45,7 @@ const TodoCard = ({ todo, complete = false }: Props) => {
             </span>
           </div>
         </div>
-        {!complete && (
+        {!showEdit && (
           <div>
             <EditDelete id={todo.id} />
           </div>
