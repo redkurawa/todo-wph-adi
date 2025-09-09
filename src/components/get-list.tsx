@@ -25,7 +25,7 @@ export default function GetList({ queueParam = '', showEdit = false }: Props) {
   const setPagination = useTodoStore((s) => s.setPagination);
   const setShowEdit = useTodoStore((s) => s.setShowEdit);
 
-  console.log('queueParam getlist.ts:', queueParam);
+  // console.log('queueParam getlist.ts:', queueParam);
 
   const { data, fetchNextPage, hasNextPage, isFetchingNextPage } =
     useInfiniteQuery({

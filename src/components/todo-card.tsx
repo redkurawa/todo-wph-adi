@@ -4,7 +4,7 @@ import dayjs from 'dayjs';
 import { TodoType } from '@/constants/todo-type';
 import { useTodoStore } from '@/store/todo-store';
 
-import { EditDelete } from './edit-delete-dialog';
+import { EditDelete2 } from './edit-delete-dialog2';
 import TodoCheckbox from './todo-checkbox';
 type Props = {
   todo: TodoType;
@@ -47,7 +47,9 @@ const TodoCard = ({ todo }: Props) => {
         </div>
         {!showEdit && (
           <div>
-            <EditDelete id={todo.id} />
+            {/* <EditDelete id={todo.id} /> */}
+            <EditDelete2 todo={todo} />
+            {/* <EditDeleteDialog id={todo.id} /> */}
           </div>
         )}
       </div>

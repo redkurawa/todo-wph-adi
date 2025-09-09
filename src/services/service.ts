@@ -14,8 +14,8 @@ const getTodoList = async (todoParam: string = '', queryDate: string = '') => {
     }
 
     const response = await api.get(endpoint);
-    console.log('endpoint service.ts :', endpoint);
-    console.log('API response:', response.data.todos);
+    // console.log('endpoint service.ts :', endpoint);
+    // console.log('API response:', response.data.todos);
     return response.data;
   } catch (error) {
     console.error('Failed to fetch todos:', error);

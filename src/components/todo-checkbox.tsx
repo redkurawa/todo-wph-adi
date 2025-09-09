@@ -28,6 +28,7 @@ export default function TodoCheckbox({ tada }: Props) {
   const handleToggle = async () => {
     setLoading(true);
     const updated = { ...localTada, completed: !localTada.completed };
+    console.log('check.tsx update:', updated);
 
     try {
       await axios.put(`http://localhost:8080/todos/${updated.id}`, updated);
