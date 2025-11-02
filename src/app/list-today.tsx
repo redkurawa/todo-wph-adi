@@ -1,6 +1,7 @@
 'use client';
+import { useQuery } from '@tanstack/react-query';
 import dayjs from 'dayjs';
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 
 import GetList from '@/components/get-list';
 
@@ -11,13 +12,23 @@ const ListToday = () => {
   const [complete, setComplete] = useState(0);
   const datequery = dateQuery(dayjs().format('YYYY-MM-DD'));
 
-  useEffect(() => {
-    const fetchData = async () => {
+  const query = useQuery({
+    queryKey: ['today'],
+    queryFn: async () => {
       const data = await getTodoList('', datequery);
       setComplete(data.totalTodos);
-    };
-    fetchData();
-  }, []);
+      return data;
+    },
+  });
+
+  console.log(query);
+  // useEffect(() => {
+  //   const fetchData = async () => {
+  //     const data = await getTodoList('', datequery);
+  //     setComplete(data.totalTodos);
+  //   };
+  //   fetchData();
+  // }, []);
 
   return (
     <div>
