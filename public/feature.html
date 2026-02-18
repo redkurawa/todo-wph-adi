@@ -1,0 +1,344 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Features - Modern Todo App</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              lime: {
+                50: '#f7fee7',
+                100: '#ecfccb',
+                200: '#d9f99d',
+                300: '#bef264',
+                400: '#a3e635',
+                500: '#84cc16',
+                600: '#65a30d',
+                700: '#4d7c0f',
+                800: '#3f6212',
+                900: '#365314',
+              },
+            },
+          },
+        },
+      };
+    </script>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      body {
+        font-family:
+          -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
+          'Helvetica Neue', Arial, sans-serif;
+        background: linear-gradient(135deg, #f7fee7 0%, #ecfccb 100%);
+        min-height: 100vh;
+      }
+      .glass {
+        background: rgba(255, 255, 255, 0.7);
+        backdrop-filter: blur(10px);
+        border: 1px solid rgba(255, 255, 255, 0.5);
+      }
+      .feature-card {
+        transition: all 0.3s ease;
+      }
+      .feature-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 20px 40px rgba(132, 204, 22, 0.15);
+      }
+      .lime-glow {
+        box-shadow: 0 0 60px rgba(132, 204, 22, 0.3);
+      }
+      @keyframes float {
+        0%,
+        100% {
+          transform: translateY(0);
+        }
+        50% {
+          transform: translateY(-10px);
+        }
+      }
+      .float-animation {
+        animation: float 3s ease-in-out infinite;
+      }
+    </style>
+  </head>
+  <body class="text-gray-800">
+    <!-- Header -->
+    <header class="glass fixed top-0 right-0 left-0 z-50">
+      <div
+        class="mx-auto flex max-w-6xl items-center justify-between px-6 py-4"
+      >
+        <a href="/" class="text-2xl font-bold text-lime-700">Todo</a>
+        <nav class="flex gap-6">
+          <a
+            href="/"
+            class="text-gray-600 transition-colors hover:text-lime-600"
+            >Home</a
+          >
+          <a href="/feature.html" class="font-medium text-lime-600">Features</a>
+        </nav>
+      </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="px-6 pt-32 pb-20">
+      <div class="mx-auto max-w-4xl text-center">
+        <div
+          class="mb-6 inline-block rounded-full bg-lime-100 px-4 py-2 text-sm font-medium text-lime-700"
+        >
+          ✨ Powerful Features
+        </div>
+        <h1
+          class="mb-6 text-5xl leading-tight font-bold text-gray-900 md:text-6xl"
+        >
+          Everything you need to
+          <span class="text-lime-600">stay organized</span>
+        </h1>
+        <p class="mx-auto mb-10 max-w-2xl text-xl text-gray-600">
+          A minimal yet powerful todo application designed to help you focus on
+          what matters most.
+        </p>
+      </div>
+    </section>
+
+    <!-- Features Grid -->
+    <section class="px-6 pb-20">
+      <div class="mx-auto max-w-6xl">
+        <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+          <!-- Feature 1 -->
+          <div class="feature-card glass lime-glow rounded-2xl p-8">
+            <div
+              class="float-animation mb-6 flex h-14 w-14 items-center justify-center rounded-xl bg-lime-100"
+            >
+              <svg
+                class="h-7 w-7 text-lime-600"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4"
+                ></path>
+              </svg>
+            </div>
+            <h3 class="mb-3 text-xl font-semibold text-gray-900">
+              Task Management
+            </h3>
+            <p class="leading-relaxed text-gray-600">
+              Create, edit, and organize your tasks with ease. Mark tasks as
+              complete with a simple checkbox.
+            </p>
+          </div>
+
+          <!-- Feature 2 -->
+          <div class="feature-card glass rounded-2xl p-8">
+            <div
+              class="float-animation mb-6 flex h-14 w-14 items-center justify-center rounded-xl bg-lime-100"
+              style="animation-delay: 0.2s"
+            >
+              <svg
+                class="h-7 w-7 text-lime-600"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"
+                ></path>
+              </svg>
+            </div>
+            <h3 class="mb-3 text-xl font-semibold text-gray-900">
+              Date Scheduling
+            </h3>
+            <p class="leading-relaxed text-gray-600">
+              Schedule tasks for today, upcoming days, or any specific date.
+              Never miss a deadline again.
+            </p>
+          </div>
+
+          <!-- Feature 3 -->
+          <div class="feature-card glass rounded-2xl p-8">
+            <div
+              class="float-animation mb-6 flex h-14 w-14 items-center justify-center rounded-xl bg-lime-100"
+              style="animation-delay: 0.4s"
+            >
+              <svg
+                class="h-7 w-7 text-lime-600"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M7 7h.01M7 3h5c.512 0 1.024.195 1.414.586l7 7a2 2 0 010 2.828l-7 7a2 2 0 01-2.828 0l-7-7A1.994 1.994 0 013 12V7a4 4 0 014-4z"
+                ></path>
+              </svg>
+            </div>
+            <h3 class="mb-3 text-xl font-semibold text-gray-900">
+              Priority Levels
+            </h3>
+            <p class="leading-relaxed text-gray-600">
+              Set priority levels (low, medium, high) to focus on important
+              tasks first.
+            </p>
+          </div>
+
+          <!-- Feature 4 -->
+          <div class="feature-card glass rounded-2xl p-8">
+            <div
+              class="float-animation mb-6 flex h-14 w-14 items-center justify-center rounded-xl bg-lime-100"
+              style="animation-delay: 0.6s"
+            >
+              <svg
+                class="h-7 w-7 text-lime-600"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"
+                ></path>
+              </svg>
+            </div>
+            <h3 class="mb-3 text-xl font-semibold text-gray-900">Today View</h3>
+            <p class="leading-relaxed text-gray-600">
+              See all your tasks for today at a glance. Stay focused on what
+              needs to be done now.
+            </p>
+          </div>
+
+          <!-- Feature 5 -->
+          <div class="feature-card glass rounded-2xl p-8">
+            <div
+              class="float-animation mb-6 flex h-14 w-14 items-center justify-center rounded-xl bg-lime-100"
+              style="animation-delay: 0.8s"
+            >
+              <svg
+                class="h-7 w-7 text-lime-600"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"
+                ></path>
+              </svg>
+            </div>
+            <h3 class="mb-3 text-xl font-semibold text-gray-900">
+              Completed Tasks
+            </h3>
+            <p class="leading-relaxed text-gray-600">
+              Review your completed tasks history. Track your progress and stay
+              motivated.
+            </p>
+          </div>
+
+          <!-- Feature 6 -->
+          <div class="feature-card glass rounded-2xl p-8">
+            <div
+              class="float-animation mb-6 flex h-14 w-14 items-center justify-center rounded-xl bg-lime-100"
+              style="animation-delay: 1s"
+            >
+              <svg
+                class="h-7 w-7 text-lime-600"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z"
+                ></path>
+              </svg>
+            </div>
+            <h3 class="mb-3 text-xl font-semibold text-gray-900">Dark Mode</h3>
+            <p class="leading-relaxed text-gray-600">
+              Easy on the eyes with automatic dark mode support. Works
+              seamlessly across devices.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="px-6 pb-20">
+      <div class="mx-auto max-w-4xl">
+        <div class="glass lime-glow rounded-3xl p-12 text-center">
+          <h2 class="mb-4 text-3xl font-bold text-gray-900">
+            Ready to get organized?
+          </h2>
+          <p class="mx-auto mb-8 max-w-xl text-gray-600">
+            Start using our todo app today and experience the joy of being
+            productive.
+          </p>
+          <a
+            href="/"
+            class="inline-flex items-center gap-2 rounded-xl bg-lime-600 px-8 py-4 font-semibold text-white transition-all hover:scale-105 hover:bg-lime-700"
+          >
+            <span>Get Started</span>
+            <svg
+              class="h-5 w-5"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M13 7l5 5m0 0l-5 5m5-5H6"
+              ></path>
+            </svg>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="border-t border-lime-200 px-6 py-8">
+      <div
+        class="mx-auto flex max-w-6xl flex-col items-center justify-between gap-4 md:flex-row"
+      >
+        <p class="text-gray-600">
+          © 2026 Todo App. Built with Next.js & Tailwind.
+        </p>
+        <div class="flex gap-6">
+          <a
+            href="/"
+            class="text-gray-600 transition-colors hover:text-lime-600"
+            >Home</a
+          >
+          <a
+            href="/feature.html"
+            class="text-gray-600 transition-colors hover:text-lime-600"
+            >Features</a
+          >
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>
